@@ -16,6 +16,10 @@ app.get(["/", "/api/index.js"], (req, res) => {
   res.json({ message: "CityBike API is running!" });
 });
 
+app.get("/health", (req, res) => {
+  res.json({ status: "ok", service: "CityBike API" });
+});
+
 async function connectToMongo() {
   if (mongoose.connection.readyState === 1) return;
   if (!process.env.MONGODB_URI) {
