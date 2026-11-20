@@ -19,16 +19,33 @@ router.post("/profile", requireFirebaseAuth, async (req, res) => {
       });
     }
 
+    const verifiedPhone = req.firebaseUser.phone_number;
+    if (verifiedPhone && verifiedPhone !== mobile) {
+      return res.status(400).json({
+        message: "The mobile number must match the number verified with Firebase.",
+      });
+    }
+
+    const profileUpdate = {
+      firebaseUid: req.firebaseUser.uid,
+      name,
+      email: email.toLowerCase(),
+      emailVerified: Boolean(req.firebaseUser.email_verified),
+    };
+    if (verifiedPhone === mobile) {
+      profileUpdate.mobile = mobile;
+      profileUpdate.mobileVerified = true;
+    }
+
     const user = await User.findOneAndUpdate(
       { firebaseUid: req.firebaseUser.uid },
+      profileUpdate,
       {
-        firebaseUid: req.firebaseUser.uid,
-        name,
-        email: email.toLowerCase(),
-        mobile,
-        emailVerified: Boolean(req.firebaseUser.email_verified),
-      },
-      { new: true, upsert: true, runValidators: true, setDefaultsOnInsert: true }
+        new: true,
+        upsert: true,
+        runValidators: true,
+        setDefaultsOnInsert: true,
+      }
     );
     return res.json({ user: publicUser(user) });
   } catch (error) {
@@ -75,7 +92,7 @@ function publicUser(user) {
     email: user.email,
     mobile: user.mobile,
     emailVerified: Boolean(user.emailVerified),
-    mobileVerified: false,
+    mobileVerified: Boolean(user.mobileVerified),
   };
 }
 
