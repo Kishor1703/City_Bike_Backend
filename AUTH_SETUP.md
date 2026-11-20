@@ -20,7 +20,7 @@ The backend verifies Firebase ID tokens with the Firebase Admin SDK. Set these v
 - `FIREBASE_SERVICE_ACCOUNT_JSON`: the full JSON contents of a service account key for that project.
 - `MONGODB_URI`: the existing MongoDB connection string.
 
-The Firebase Admin SDK requires Node.js 22 or later.
+The Firebase Admin SDK requires Node.js 22 or later. Vercel is pinned to Node.js 22.x for this backend.
 
 Create/download the service account key from Firebase Console → Project settings → Service accounts. Keep the private key secret; do not commit it. The server uses the credential only to verify Firebase ID tokens.
 
