@@ -19,23 +19,14 @@ router.post("/profile", requireFirebaseAuth, async (req, res) => {
       });
     }
 
-    const verifiedPhone = req.firebaseUser.phone_number;
-    if (verifiedPhone && verifiedPhone !== mobile) {
-      return res.status(400).json({
-        message: "The mobile number must match the number verified with Firebase.",
-      });
-    }
-
     const profileUpdate = {
       firebaseUid: req.firebaseUser.uid,
       name,
       email: email.toLowerCase(),
       emailVerified: Boolean(req.firebaseUser.email_verified),
+      mobile,
+      mobileVerified: false,
     };
-    if (verifiedPhone === mobile) {
-      profileUpdate.mobile = mobile;
-      profileUpdate.mobileVerified = true;
-    }
 
     const user = await User.findOneAndUpdate(
       { firebaseUid: req.firebaseUser.uid },
