@@ -51,24 +51,6 @@ async function sendEmailCode(email, code) {
   if (!response.ok) throw new Error("Could not send the email verification code.");
 }
 
-async function sendMobileCode(mobile, code) {
-  const { TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_FROM_NUMBER } = process.env;
-  if (!TWILIO_ACCOUNT_SID || !TWILIO_AUTH_TOKEN || !TWILIO_FROM_NUMBER) {
-    throw new Error("Mobile verification is not configured. Set the Twilio account, token, and sender number.");
-  }
-  const body = new URLSearchParams({
-    To: mobile,
-    From: TWILIO_FROM_NUMBER,
-    Body: `Your CityBike mobile verification code is ${code}. It expires in 10 minutes.`,
-  });
-  const auth = Buffer.from(`${TWILIO_ACCOUNT_SID}:${TWILIO_AUTH_TOKEN}`).toString("base64");
-  const response = await fetch(
-    `https://api.twilio.com/2010-04-01/Accounts/${TWILIO_ACCOUNT_SID}/Messages.json`,
-    { method: "POST", headers: { Authorization: `Basic ${auth}`, "Content-Type": "application/x-www-form-urlencoded" }, body }
-  );
-  if (!response.ok) throw new Error("Could not send the mobile verification code.");
-}
-
 router.post("/register/start", async (req, res) => {
   try {
     const name = typeof req.body.name === "string" ? req.body.name.trim() : "";
@@ -85,16 +67,15 @@ router.post("/register/start", async (req, res) => {
     }
 
     const emailCode = `${crypto.randomInt(0, 1000000)}`.padStart(6, "0");
-    const mobileCode = `${crypto.randomInt(0, 1000000)}`.padStart(6, "0");
     const now = new Date();
     await Registration.findOneAndUpdate(
       { $or: [{ email }, { mobile }] },
-      { name, email, mobile, passwordHash: passwordHash(password), emailCodeHash: hash(emailCode), mobileCodeHash: hash(mobileCode), expiresAt: new Date(now.getTime() + CODE_LIFETIME_MS), attempts: 0 },
+      { name, email, mobile, passwordHash: passwordHash(password), emailCodeHash: hash(emailCode), expiresAt: new Date(now.getTime() + CODE_LIFETIME_MS), attempts: 0 },
       { upsert: true, new: true, setDefaultsOnInsert: true }
     );
 
-    await Promise.all([sendEmailCode(email, emailCode), sendMobileCode(mobile, mobileCode)]);
-    return res.status(200).json({ message: "Verification codes sent to your email and mobile." });
+    await sendEmailCode(email, emailCode);
+    return res.status(200).json({ message: "A verification code was sent to your email." });
   } catch (error) {
     console.error("Registration start failed:", error.message);
     return res.status(503).json({ message: error.message || "Could not start registration." });
@@ -105,7 +86,6 @@ router.post("/register/verify", async (req, res) => {
   try {
     const email = normalizeEmail(req.body.email);
     const emailCode = typeof req.body.emailCode === "string" ? req.body.emailCode.trim() : "";
-    const mobileCode = typeof req.body.mobileCode === "string" ? req.body.mobileCode.trim() : "";
     const registration = await Registration.findOne({ email });
     if (!registration || registration.expiresAt <= new Date()) {
       return res.status(400).json({ message: "Verification expired. Please start registration again." });
@@ -115,11 +95,10 @@ router.post("/register/verify", async (req, res) => {
       return res.status(429).json({ message: "Too many incorrect attempts. Please start registration again." });
     }
     const emailValid = hash(emailCode) === registration.emailCodeHash;
-    const mobileValid = hash(mobileCode) === registration.mobileCodeHash;
-    if (!emailValid || !mobileValid) {
+    if (!emailValid) {
       registration.attempts += 1;
       await registration.save();
-      return res.status(400).json({ message: "One or both verification codes are incorrect." });
+      return res.status(400).json({ message: "The email verification code is incorrect." });
     }
 
     const user = await User.create({
@@ -128,7 +107,7 @@ router.post("/register/verify", async (req, res) => {
       mobile: registration.mobile,
       passwordHash: registration.passwordHash,
       emailVerified: true,
-      mobileVerified: true,
+      mobileVerified: false,
     });
     await registration.deleteOne();
     return res.status(201).json({ message: "Your account is verified and ready.", user: { id: user.id, name: user.name, email: user.email, mobile: user.mobile } });

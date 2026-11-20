@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema(
     mobile: { type: String, required: true, unique: true, trim: true },
     passwordHash: { type: String, required: true, select: false },
     emailVerified: { type: Boolean, default: true },
-    mobileVerified: { type: Boolean, default: true },
+    mobileVerified: { type: Boolean, default: false },
   },
   { timestamps: true }
 );

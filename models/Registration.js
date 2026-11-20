@@ -7,7 +7,6 @@ const registrationSchema = new mongoose.Schema(
     mobile: { type: String, required: true, trim: true },
     passwordHash: { type: String, required: true },
     emailCodeHash: { type: String, required: true },
-    mobileCodeHash: { type: String, required: true },
     expiresAt: { type: Date, required: true, expires: 0 },
     attempts: { type: Number, default: 0 },
   },
