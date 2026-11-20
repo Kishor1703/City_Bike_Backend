@@ -12,7 +12,7 @@ let mongoConnection;
 app.use(cors());
 app.use(express.json());
 
-app.get("/", (req, res) => {
+app.get(["/", "/api/index.js"], (req, res) => {
   res.json({ message: "CityBike API is running!" });
 });
 
