@@ -46,6 +46,7 @@ app.use(async (req, res, next) => {
 
 app.use("/api/rides", require("../routes/rides"));
 app.use("/api/bookings", require("../routes/bookings"));
+app.use("/api/auth", require("../routes/auth"));
 
 if (require.main === module) {
   const PORT = process.env.PORT || 5000;
