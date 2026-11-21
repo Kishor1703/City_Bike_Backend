@@ -1,0 +1,482 @@
+[
+    {
+        "area_name":  "Washermanpet",
+        "zone":  "North Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Tondiarpet",
+        "zone":  "North Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Royapuram",
+        "zone":  "North Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Thiruvottiyur",
+        "zone":  "North Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Manali",
+        "zone":  "North Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Madhavaram",
+        "zone":  "North Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Perambur",
+        "zone":  "North Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Kolathur",
+        "zone":  "North Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Vyasarpadi",
+        "zone":  "North Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Pulianthope",
+        "zone":  "North Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Moolakadai",
+        "zone":  "North Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Ennore",
+        "zone":  "North Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Kodungaiyur",
+        "zone":  "North Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "George Town",
+        "zone":  "North Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Mint",
+        "zone":  "North Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Egmore",
+        "zone":  "Central Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Kilpauk",
+        "zone":  "Central Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Purasawalkam",
+        "zone":  "Central Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Chetpet",
+        "zone":  "Central Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Nungambakkam",
+        "zone":  "Central Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "T. Nagar",
+        "zone":  "Central Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Thousand Lights",
+        "zone":  "Central Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Royapettah",
+        "zone":  "Central Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Triplicane",
+        "zone":  "Central Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Mylapore",
+        "zone":  "Central Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Alwarpet",
+        "zone":  "Central Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Gopalapuram",
+        "zone":  "Central Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Chintadripet",
+        "zone":  "Central Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Chepauk",
+        "zone":  "Central Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Anna Salai",
+        "zone":  "Central Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Anna Nagar",
+        "zone":  "West Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Anna Nagar West",
+        "zone":  "West Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Shenoy Nagar",
+        "zone":  "West Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Aminjikarai",
+        "zone":  "West Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Arumbakkam",
+        "zone":  "West Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Koyambedu",
+        "zone":  "West Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Mogappair",
+        "zone":  "West Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Mogappair East",
+        "zone":  "West Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Mogappair West",
+        "zone":  "West Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Ambattur",
+        "zone":  "West Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Avadi",
+        "zone":  "West Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Thirumullaivoyal",
+        "zone":  "West Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Padi",
+        "zone":  "West Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Villivakkam",
+        "zone":  "West Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Nolambur",
+        "zone":  "West Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Porur",
+        "zone":  "West Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Valasaravakkam",
+        "zone":  "West Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Maduravoyal",
+        "zone":  "West Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Vanagaram",
+        "zone":  "West Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Nerkundram",
+        "zone":  "West Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Adyar",
+        "zone":  "South Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Besant Nagar",
+        "zone":  "South Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Thiruvanmiyur",
+        "zone":  "South Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Kotturpuram",
+        "zone":  "South Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Guindy",
+        "zone":  "South Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Saidapet",
+        "zone":  "South Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Velachery",
+        "zone":  "South Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Madipakkam",
+        "zone":  "South Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Nanganallur",
+        "zone":  "South Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Pallikaranai",
+        "zone":  "South Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Keelkattalai",
+        "zone":  "South Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Medavakkam",
+        "zone":  "South Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Perungudi",
+        "zone":  "South Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Thoraipakkam",
+        "zone":  "South Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Sholinganallur",
+        "zone":  "South Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Karapakkam",
+        "zone":  "South Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Navalur",
+        "zone":  "South Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Siruseri",
+        "zone":  "South Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "OMR",
+        "zone":  "South Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "ECR",
+        "zone":  "South Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Pallavaram",
+        "zone":  "South Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Chromepet",
+        "zone":  "South Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Tambaram",
+        "zone":  "South Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Selaiyur",
+        "zone":  "South Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Chitlapakkam",
+        "zone":  "South Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Anakaputhur",
+        "zone":  "South Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Pammal",
+        "zone":  "South Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Kundrathur",
+        "zone":  "South Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Perungalathur",
+        "zone":  "South Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    },
+    {
+        "area_name":  "Vandalur",
+        "zone":  "South Chennai",
+        "city":  "Chennai",
+        "state":  "Tamil Nadu"
+    }
+]

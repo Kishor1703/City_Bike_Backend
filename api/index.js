@@ -49,6 +49,7 @@ app.use(async (req, res, next) => {
 });
 
 app.use("/api/rides", require("../routes/rides"));
+app.use("/api/locations", require("../routes/locations").router);
 app.use("/api/bookings", require("../routes/bookings"));
 app.use("/api/auth", require("../routes/auth"));
 

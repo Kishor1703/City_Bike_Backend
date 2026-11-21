@@ -3,6 +3,7 @@ const Ride = require("../models/Ride");
 const Booking = require("../models/Booking");
 const User = require("../models/User");
 const requireFirebaseAuth = require("../middleware/requireFirebaseAuth");
+const { rememberLocation } = require("./locations");
 
 const router = express.Router();
 
@@ -54,6 +55,8 @@ router.post("/", requireFirebaseAuth, async (req, res) => {
       });
     }
 
+    await Promise.all([rememberLocation(pickup), rememberLocation(destination)]);
+
     const profile = await User.findOne({ firebaseUid: req.firebaseUser.uid });
     const ride = await Ride.create({
       riderUid: req.firebaseUser.uid,
@@ -91,6 +94,8 @@ router.get("/search", requireFirebaseAuth, async (req, res) => {
         message: "Pickup, destination and date are required.",
       });
     }
+
+    await Promise.all([rememberLocation(pickup), rememberLocation(destination)]);
 
     const rides = await Ride.find({
       pickup: { $regex: `^${escapeRegex(pickup.trim())}$`, $options: "i" },
