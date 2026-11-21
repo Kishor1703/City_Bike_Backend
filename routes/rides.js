@@ -1,11 +1,17 @@
 const express = require("express");
 const Ride = require("../models/Ride");
+const Booking = require("../models/Booking");
+const User = require("../models/User");
+const requireFirebaseAuth = require("../middleware/requireFirebaseAuth");
 
 const router = express.Router();
 
 // Offer a ride
-router.post("/", async (req, res) => {
+router.post("/", requireFirebaseAuth, async (req, res) => {
   try {
+    if (!req.firebaseUser.email_verified) {
+      return res.status(403).json({ message: "Verify your email before publishing a ride." });
+    }
     const {
       riderName,
       pickup,
@@ -48,7 +54,11 @@ router.post("/", async (req, res) => {
       });
     }
 
+    const profile = await User.findOne({ firebaseUid: req.firebaseUser.uid });
     const ride = await Ride.create({
+      riderUid: req.firebaseUser.uid,
+      riderEmail: req.firebaseUser.email.toLowerCase(),
+      riderMobile: profile?.mobile || "",
       riderName: riderName.trim(),
       pickup: pickup.trim(),
       destination: destination.trim(),
@@ -69,8 +79,11 @@ router.post("/", async (req, res) => {
 });
 
 // Search for rides
-router.get("/search", async (req, res) => {
+router.get("/search", requireFirebaseAuth, async (req, res) => {
   try {
+    if (!req.firebaseUser.email_verified) {
+      return res.status(403).json({ message: "Verify your email before searching for rides." });
+    }
     const { pickup, destination, date } = req.query;
 
     if (!pickup || !destination || !date) {
@@ -87,6 +100,7 @@ router.get("/search", async (req, res) => {
       },
       date,
       availableSeats: { $gt: 0 },
+      riderUid: { $ne: req.firebaseUser.uid },
     }).sort({ time: 1 });
 
     res.json({
@@ -95,6 +109,24 @@ router.get("/search", async (req, res) => {
     });
   } catch (error) {
     res.status(500).json({ message: "Could not search for rides." });
+  }
+});
+
+router.get("/history", requireFirebaseAuth, async (req, res) => {
+  try {
+    if (!req.firebaseUser.email_verified) {
+      return res.status(403).json({ message: "Verify your email before viewing ride history." });
+    }
+    const [published, bookings] = await Promise.all([
+      Ride.find({ riderUid: req.firebaseUser.uid }).sort({ date: -1, time: -1 }),
+      Booking.find({ passengerUid: req.firebaseUser.uid })
+        .populate("ride")
+        .sort({ createdAt: -1 }),
+    ]);
+    res.json({ published, bookings });
+  } catch (error) {
+    console.error("Ride history load failed:", error.message);
+    res.status(500).json({ message: "Could not load your ride history." });
   }
 });
 

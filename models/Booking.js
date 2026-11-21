@@ -3,6 +3,10 @@ const mongoose = require("mongoose");
 
 const bookingSchema = new mongoose.Schema(
   {
+    passengerUid: { type: String, index: true },
+    passengerEmail: { type: String, trim: true, lowercase: true },
+    passengerMobile: { type: String, trim: true },
+    pickupLocation: { type: String, required: true, trim: true, maxlength: 200 },
     ride: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Ride",

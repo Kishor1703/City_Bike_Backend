@@ -2,6 +2,9 @@ const mongoose = require("mongoose");
 
 const rideSchema = new mongoose.Schema(
   {
+    riderUid: { type: String, index: true },
+    riderEmail: { type: String, trim: true, lowercase: true },
+    riderMobile: { type: String, trim: true },
     riderName: {
       type: String,
       required: true,
